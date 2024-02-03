@@ -30,7 +30,7 @@ async def health_checker():
     }
 
 @app.post('/gpt-get-chunk-notes')
-async def get_gpt4_chunk_notes(chunk_idx: int, transcript_file: UploadFile = File(...), image: UploadFile = File(...)):
+async def get_gpt4_chunk_notes(chunk_idx: int, course_name: str, transcript_file: UploadFile = File(...), image: UploadFile = File(...)):
     
     try:
         transcript = await transcript_file.read()
@@ -55,7 +55,7 @@ Speak in 3rd person and follow these rules while generating notes strictly -
 4. You may also write latex equations by only wrapping it in $ $ and not \( \). Example: $x = 10$
 5. Do not output anything else apart from the markdown file.
 
-Also, only include relevant information on the topic of this class: "Natural Language Processing.  Do not ever summarize the transcript given above or summarize your notes below.
+Also, only include relevant information on the topic of this class: '{course_name}'.  Do not ever summarize the transcript given above or summarize your notes below.
 """
 
     response = client.chat.completions.create(
@@ -64,7 +64,7 @@ Also, only include relevant information on the topic of this class: "Natural Lan
         messages=[
             {
                 "role": "system", 
-                "content": f"You are an expert in course 'Natural Language Processing' and perfectly articulate and knowledgable chatbot who can generate perfectly well articulated notes of lectures capturing all the important information for students. As a professional note-taker, you need to write notes which explains all the concepts perfectly well  and possibly include examples and explain them if given in the lecture so that any student can read and understand them.  Students prefer notes which give out as much information as possible so it becomes easy for them to understand."
+                "content": f"You are an expert in course '{course_name}' and perfectly articulate and knowledgable chatbot who can generate perfectly well articulated notes of lectures capturing all the important information for students. As a professional note-taker, you need to write notes which explains all the concepts perfectly well  and possibly include examples and explain them if given in the lecture so that any student can read and understand them.  Students prefer notes which give out as much information as possible so it becomes easy for them to understand."
             },
             {
                 "role": "user", 
@@ -90,7 +90,7 @@ Also, only include relevant information on the topic of this class: "Natural Lan
 
 
 @app.post('/gpt-get-notes')
-async def get_gpt_notes(chunk_transcript_files: List[UploadFile] = File(...), chunk_image_files: List[UploadFile] = File(...)):
+async def get_gpt_notes(course_name: str, chunk_transcript_files: List[UploadFile] = File(...), chunk_image_files: List[UploadFile] = File(...)):
 
     chunks = len(chunk_transcript_files)
     
@@ -99,6 +99,7 @@ async def get_gpt_notes(chunk_transcript_files: List[UploadFile] = File(...), ch
     for chunk_idx in range(chunks):
         response = await get_gpt4_chunk_notes(
             chunk_idx, 
+            course_name,
             chunk_transcript_files[chunk_idx], 
             chunk_image_files[chunk_idx]
         )
