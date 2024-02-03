@@ -1,22 +1,33 @@
 import { Navbar } from '@/components/shared';
+import Image from 'next/image';
+import MainPng from '../../public/main.png'
 
 const Dashboard = () => {
   return (
     <>
       <Navbar />
 
-      <div className="p-[5rem]">
+
         <input
           type="text"
-          className="mt-[2rem] px-4 py-1 w-9/12 border-2 border-black rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          className="customInput"
           placeholder="Search your course here..."
         />
 
-        <button className="px-4 py-1 w-3/12 border-2 border-black rounded-lg bg-[#D99F03]">
+        <button className="btn">
           Add custom video
         </button>
-      </div>
-    </>
+
+        <Image
+          src={MainPng}
+          alt="Course 1"
+          width={350}
+          height={250}
+        />
+        <h1>COMS1257</h1>
+        <h3>User Interface Design</h3>
+
+        </>
   );
 };
 

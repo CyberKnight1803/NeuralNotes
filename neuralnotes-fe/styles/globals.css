@@ -9,3 +9,29 @@ body {
   background: #f2f2f0;
   font-family: 'JetBrains Mono', monospace;
 }
+
+
+.customInput {
+  box-shadow: 6px -6px #D99F03, 8px -8px #000, 5px -8px #000, 8px -4px #000;
+  margin-top: 2rem;
+  border-radius: 4rem;
+  width: 80%;
+  padding: 0.5rem 3rem;
+  margin-right: 1rem;
+  border: 2px solid black;
+}
+.customInput:focus {
+  box-shadow: 6px -6px #D99F03, 7px -8px #000, 5px -8px #000, 8px -4px #000;
+  outline: none;
+}
+
+.btn {
+  padding: 0.5rem 2rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: #D99F03;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
