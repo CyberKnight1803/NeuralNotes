@@ -4,9 +4,7 @@ import MainPng from '../../public/main.png'
 
 const Dashboard = () => {
   return (
-    <>
-      <Navbar />
-
+    <div className="p-[5rem]">
 
         <input
           type="text"
@@ -27,7 +25,7 @@ const Dashboard = () => {
         <h1>COMS1257</h1>
         <h3>User Interface Design</h3>
 
-        </>
+    </div>
   );
 };
 
