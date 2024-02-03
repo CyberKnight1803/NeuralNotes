@@ -14,17 +14,22 @@ const Navbar = () => {
           {user ? (
             <ul className="flex space-x-4">
               <li>
-                <Link href="/dashboard" legacyBehavior>
+                <Link href="/" legacyBehavior>
                   <a className="text-white">
                     {user.name} ({user.nickname})
                   </a>
                 </Link>
               </li>
               <li>
+                <Link legacyBehavior href="/dashboard">
+                  <a className="text-white">Dashboard</a>
+                </Link>
+              </li>
+              <li>
                 <Link legacyBehavior href="/api/auth/logout">
                   <a className="text-white">Logout</a>
                 </Link>
-              </li>
+              </li>{' '}
             </ul>
           ) : (
             <Link href="/api/auth/login" legacyBehavior>

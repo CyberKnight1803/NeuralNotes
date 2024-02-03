@@ -1,30 +1,20 @@
+import CourseCard from '@/components/dashboard/course-card';
 import { Navbar } from '@/components/shared';
-import Image from 'next/image';
-import MainPng from '../../public/main.png'
 
 const Dashboard = () => {
   return (
     <div className="p-[5rem]">
-
+      <div className="flex items-end justify-center">
         <input
           type="text"
           className="customInput"
           placeholder="Search your course here..."
         />
-
-        <button className="btn">
-          Add custom video
-        </button>
-
-        <Image
-          src={MainPng}
-          alt="Course 1"
-          width={350}
-          height={250}
-        />
-        <h1>COMS1257</h1>
-        <h3>User Interface Design</h3>
-
+        <button className="btn">Add custom video</button>
+      </div>
+      <div className="py-10 px-2">
+        <CourseCard />
+      </div>
     </div>
   );
 };
