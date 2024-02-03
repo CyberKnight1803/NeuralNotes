@@ -17,7 +17,7 @@ function index() {
       </div>
     );
   }
-  return <a href="/api/auth/login">Login</a>;
+  return <div>Home Page</div>;
 }
 
 export default index;
