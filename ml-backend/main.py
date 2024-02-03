@@ -22,6 +22,7 @@ app = FastAPI()
 # app.include_router(transcripts.router)
 
 
+
 @app.get('/')
 async def health_checker():
     return {
