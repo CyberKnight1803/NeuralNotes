@@ -12,24 +12,24 @@ const Navbar = () => {
             Neural Notes
           </Link>
           {user ? (
-            <ul className="flex space-x-4">
+            <ul className="flex space-x-4 justify-between items-center">
+              
               <li>
-                <Link href="/" legacyBehavior>
-                  <a className="text-white">
-                    {user.name} ({user.nickname})
-                  </a>
+                <Link legacyBehavior href="/course">
+                  <a className="text-white">Courses</a>
                 </Link>
               </li>
-              <li>
-                <Link legacyBehavior href="/dashboard">
-                  <a className="text-white">Dashboard</a>
-                </Link>
-              </li>
-              <li>
+
+              <li className='btnDark'>
                 <Link legacyBehavior href="/api/auth/logout">
                   <a className="text-white">Logout</a>
                 </Link>
-              </li>{' '}
+              </li>
+
+              <li className="userContainer text-white flex flex-col items-end justify-between">
+                <span className='name'>{user.name}</span>
+                <span className='nickname'>{user.nickname}</span>
+              </li>
             </ul>
           ) : (
             <Link href="/api/auth/login" legacyBehavior>

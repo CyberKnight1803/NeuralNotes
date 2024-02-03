@@ -10,16 +10,19 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
+.containerMain {
+  margin: 0 10rem;
+}
 
 .customInput {
   box-shadow: 6px -6px #D99F03, 8px -8px #000, 5px -8px #000, 8px -4px #000;
-  margin-top: 2rem;
+  margin: 1rem 0;
   border-radius: 4rem;
-  width: 80%;
+  width: 100%;
   padding: 0.5rem 3rem;
-  margin-right: 1rem;
   border: 2px solid black;
 }
+
 .customInput:focus {
   box-shadow: 6px -6px #D99F03, 7px -8px #000, 5px -8px #000, 8px -4px #000;
   outline: none;
@@ -30,6 +33,8 @@ body {
   border: 2px solid black;
   border-radius: 1rem;
   background-color: #D99F03;
+  margin: 1rem 0;
+  width: 100%;
 }
 
 h1 {
@@ -49,7 +54,6 @@ p {
 /* COURSES */
 .containerCourse {
   display: flex;
-  margin: 0 10rem;
 }
 
 .imgCourse {
@@ -67,7 +71,6 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  margin: 0 10rem;
   margin-top: 5rem;
 }
 
@@ -108,4 +111,38 @@ p {
   border-radius: 0.5rem;
   background-color: #C597F2;
   margin-top: 0.6rem;
+}
+
+.btnDark {
+  background-color: #00695C;
+  padding: 0.5rem 1rem;
+}
+
+
+/* NAVBAR */
+.name {
+  display: block;
+  margin: 0;
+}
+.nickname {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #eee;
+}
+.userContainer {
+  margin-left: 3rem !important;
+}
+
+
+/* COURSES - DASHBOARD */
+.imgCourses {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.containerCourses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 5rem;
 }

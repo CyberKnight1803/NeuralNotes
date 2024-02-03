@@ -6,7 +6,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="font-sans-serif">
       <Navbar />
-      <div className="h-screen">{children}</div>
+      <div className='containerMain'>{children}</div>
     </div>
   );
 };
