@@ -14,7 +14,7 @@ const UploadVideo = () => {
           <p>Drag and drop Video File</p>
           <p className="py-2 text-xl">or</p>
         </div>
-        <button className="w-full bg-[#00AEA6] hover:bg-[#00aea5dd] text-white font-bold py-2 px-4 rounded">
+        <button className="w-full bg-[#D99F03] hover:bg-[#b08d2e] border-2 border-black text-black font-bold py-2 px-4 rounded">
           Browse
         </button>
       </div>
