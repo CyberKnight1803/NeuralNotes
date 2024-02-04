@@ -23,6 +23,7 @@ app = FastAPI()
 
 
 
+
 @app.get('/')
 async def health_checker():
     return {
@@ -89,7 +90,7 @@ Also, only include relevant information on the topic of this class: '{course_nam
     }
 
 
-@app.post('/gpt-get-notes')
+@app.post('/get-gpt-notes')
 async def get_gpt_notes(course_name: str, chunk_transcript_files: List[UploadFile] = File(...), chunk_image_files: List[UploadFile] = File(...)):
 
     chunks = len(chunk_transcript_files)
@@ -106,7 +107,7 @@ async def get_gpt_notes(course_name: str, chunk_transcript_files: List[UploadFil
 
         notes += response["message"]
     
-    md_file = './data/output/temp.md'
+    md_file = './data/aoa/output/temp.md'
     with open(md_file, 'w') as mdFile:
         mdFile.write(notes)
     
@@ -115,4 +116,30 @@ async def get_gpt_notes(course_name: str, chunk_transcript_files: List[UploadFil
     return {
         'message': 'Success'
     }
-    
+
+
+@app.post('/get_notes')
+async def get_notes(data_path: str):
+
+    audio_segs = sorted(os.listdir(f"{data_path}/audio_segs"))
+    # print(audio_segs)
+
+    # slide_segs = os.listdir(f"{data_path}/slide_segs")
+
+    # assert len(audio_segs) == len(slide_segs), f"ERROR, File count does not match"
+    chunks = len(audio_segs)
+
+    for chunk_idx in range(chunks):
+        with open(f"{data_path}/audio_segs/{audio_segs[chunk_idx]}", 'rb') as audio_file:
+            transcript = client.audio.transcriptions.create(
+                model='whisper-1', 
+                file=audio_file, 
+                response_format='text'
+            )
+        
+        with open(f"{data_path}/text_segs/{chunk_idx}.txt", 'w') as txtFile:
+            txtFile.write(transcript)
+
+    return {
+        'message': 'success'
+    }
