@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav className="bg-[#00AEA6] p-4">
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-white font-bold text-xl">
+          <Link href="/course" className="text-white font-bold text-xl">
             Neural Notes
           </Link>
           {user ? (

@@ -15,16 +15,16 @@ const AddCustomVideo = () => {
         </div>
       </div>
 
-      <div>
-        <input
+      {/* <div> */}
+        {/* <input
           type="text"
           className="customInput"
           placeholder="Paste your link here..."
-        />
+        /> */}
         <a href="#" className="btn">
           Generate my PDF
         </a>
-      </div>
+      {/* </div> */}
       
       <div className="py-20">
         <div className="h-64 bg-gray-300"></div>

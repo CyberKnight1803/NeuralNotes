@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaClapperboard } from 'react-icons/fa6';
+// import { FaClapperboard } from 'react-icons/fa6';
 const UploadVideo = () => {
   return (
     <div>
@@ -8,7 +8,7 @@ const UploadVideo = () => {
       </h1>
       <div className="w-1/3 p-10 mx-auto border-2 border-black border-dashed">
         <figure className="flex justify-center text-5xl text-gray-600">
-          <FaClapperboard />
+          {/* <FaClapperboard /> */}
         </figure>
         <div className="text-center py-4">
           <p>Drag and drop Video File</p>
